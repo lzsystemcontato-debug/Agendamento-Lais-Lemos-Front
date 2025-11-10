@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Lais Lemos Podologia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ===== Header ===== -->
+    <header>
+        <img src="Imagens/ChatGPT Image 25 de out. de 2025, 19_14_18.png" alt="Logo Lais Lemos Podologia" class="logo">
+        <h1>Bem-vindo à Agenda Lais Lemos Podologia</h1>
+        <p class="admin-btn" id="abrirAdmin">Área do Administrador</p>
+    </header>
+
+    <!-- ===== Main para clientes ===== -->
+    <main id="mainCliente">
+        <section>
+            <h2>Agende sua consulta!</h2>
+            <form id="form-agenda">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" required>
+
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" required>
+
+                <label for="data">Data da Consulta:</label>
+                <input type="date" id="data" required>
+
+                <label for="hora">Hora:</label>
+                <input type="time" id="hora" required>
+
+                <label for="servico">Serviço:</label>
+                <select id="servico" required>
+                    <option value="consulta">Consulta</option>
+                    <option value="tratamento">Tratamento</option>
+                    <option value="pedicure">Pedicure</option>
+                    <option value="mao">Mão</option>
+                    <option value="pe">Pé</option>
+                    <option value="mao_pe">Mão e Pé</option>
+                    <option value="retorno">Retorno</option>
+                </select>
+
+                <button type="button" id="btn-agendar">Agendar</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Horários Agendados</h2>
+            <ul id="lista-horarios"></ul>
+        </section>
+    </main>
+
+    <!-- ===== Área Admin ===== -->
+    <main id="mainAdmin" style="display:none; padding:20px;">
+        <h2>Painel do Administrador</h2>
+        <p>Bem-vindo(a), Admin!</p>
+
+        <!-- Tabela de agendamentos -->
+       <section id="adminTabela" class="admin-tabela">
+    <h3>📋 Agendamentos</h3>
+
+    <div class="tabela-container">
+        <table class="tabela-agendamentos">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Hora</th>
+                    <th>Nome</th>
+                    <th>Serviço</th>
+                    <th>Telefone</th>
+                    <th>Atendido?</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="tabelaAgendamentos">
+                <!-- Linhas preenchidas dinamicamente pelo JavaScript -->
+            </tbody>
+        </table>
+    </div>
+</section>
+
+        <!-- Contagem de atendimentos -->
+        <section id="adminContagem">
+            <h3>Contagem de atendimentos por dia</h3>
+            <ul id="listaContagem"></ul>
+        </section>
+
+        <!-- Gráficos -->
+        <section class="grafico-card">
+            <h3>Gráfico de atendimentos por dia</h3>
+            <canvas id="graficoDia"></canvas>
+        </section>
+        <section class="grafico-card">
+            <h3>Gráfico de atendimentos por mês</h3>
+            <canvas id="graficoMes"></canvas>
+        </section>
+
+        <button id="btnSairAdmin" class="btn-sair">Sair do Admin</button>
+    </main>
+
+    <!-- ===== Modal Login Admin ===== -->
+    <div id="modalAdmin" class="modal">
+        <div class="modal-content">
+            <span class="fechar" id="fecharModal">&times;</span>
+
+            <h2>Login Admin</h2>
+            <input type="password" id="senhaAdmin" placeholder="Digite a senha">
+            <button id="btnLoginAdmin">Entrar</button>
+            <p id="msgErro" style="color:rgb(236, 11, 11); display:none; margin-top:10px;">Senha incorreta!</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

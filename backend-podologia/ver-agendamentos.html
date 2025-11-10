@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ver Agendamentos</title>
+  <style>
+    body { font-family: sans-serif; margin: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background-color: #f0f0f0; }
+  </style>
+</head>
+<body>
+  <h1>Todos os Agendamentos</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Data</th>
+        <th>Hora</th>
+        <th>Nome</th>
+        <th>Telefone</th>
+        <th>Serviço</th>
+        <th>Atendido?</th>
+      </tr>
+    </thead>
+    <tbody id="tabelaAgendamentos"></tbody>
+  </table>
+
+  <script>
+    const API_URL = "http://localhost:3000";
+
+    async function carregarAgendamentos() {
+      try {
+        const resposta = await fetch(`${API_URL}/agendamentos`);
+        const agendamentos = await resposta.json();
+
+        const tbody = document.getElementById('tabelaAgendamentos');
+        tbody.innerHTML = agendamentos.map(a => `
+          <tr>
+            <td>${a.id}</td>
+            <td>${a.data}</td>
+            <td>${a.hora}</td>
+            <td>${a.nome}</td>
+            <td>${a.telefone}</td>
+            <td>${a.servico}</td>
+            <td>${a.atendido ? "✅" : "❌"}</td>
+          </tr>
+        `).join('');
+      } catch (erro) {
+        console.error("Erro ao carregar agendamentos:", erro);
+        alert("Erro ao carregar agendamentos!");
+      }
+    }
+
+    carregarAgendamentos();
+  </script>
+  <script>
+async function carregarAgendamentos() {
+  try {
+    const resposta = await fetch('http://localhost:3000/agendamentos');
+    const agendamentos = await resposta.json();
+    const tabela = document.getElementById('tabelaAgendamentos');
+    tabela.innerHTML = ''; // limpa antes de preencher
+
+    agendamentos.forEach(a => {
+      const linha = document.createElement('tr');
+      linha.innerHTML = `
+        <td>${a.id}</td>
+        <td>${a.data}</td>
+        <td>${a.hora}</td>
+        <td>${a.nome}</td>
+        <td>${a.telefone}</td>
+        <td>${a.servico}</td>
+        <td>${a.atendido ? 'Sim' : 'Não'}</td>
+      `;
+      tabela.appendChild(linha);
+    });
+  } catch (erro) {
+    console.error('Erro ao carregar agendamentos:', erro);
+  }
+}
+
+// chama a função ao carregar a página
+carregarAgendamentos();
+</script>
+
+</body>
+</html>

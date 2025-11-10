@@ -1,0 +1,405 @@
+/* ===== Reset básico ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5ebdd;
+    color: #333;
+    padding: 20px;
+}
+
+/* ===== Header ===== */
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #29dbe2;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header .logo {
+    height: 60px;
+    margin-right: 10px;
+}
+
+h1 {
+    font-size: 1.6em;
+    color: white;
+    flex: 1;
+    margin: 5px 0;
+}
+
+.admin-btn {
+    padding: 8px 15px;
+    background-color: #f70404;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.admin-btn:hover {
+    background-color: #004d40;
+}
+
+/* ===== Área principal ===== */
+main {
+    max-width: 700px;
+    margin: 30px auto;
+}
+
+/* ===== Sessão de Agendamento ===== */
+section {
+    margin-bottom: 30px;
+}
+
+/* Caixa principal do agendamento */
+#mainCliente section:first-of-type {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    border-top: 6px solid #29dbe2;
+}
+
+/* Título do formulário */
+#mainCliente h2 {
+    text-align: center;
+    color: #004d40;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+/* ===== Formulário ===== */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+form input,
+form select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    margin-bottom: 10px;
+    transition: border-color 0.2s ease;
+}
+
+form input:focus,
+form select:focus {
+    border-color: #29dbe2;
+    outline: none;
+}
+
+/* Botão Agendar */
+button#btn-agendar {
+    background-color: #29dbe2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+button#btn-agendar:hover {
+    background-color: #0097a7;
+}
+
+/* ===== Lista de horários ===== */
+#mainCliente section:nth-of-type(2) {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+#mainCliente section:nth-of-type(2) h2 {
+    text-align: center;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+ul#lista-horarios {
+    list-style: none;
+    padding: 0;
+}
+
+ul#lista-horarios li {
+    background: #29dbe2;
+    color: white;
+    margin-bottom: 10px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* ===== Modal ===== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 50% auto;
+    transform: translateY(-50%);
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.modal-content input {
+    width: 80%;
+    margin-bottom: 15px;
+    padding: 8px;
+}
+
+.modal-content button {
+    padding: 8px 15px;
+    background-color: #29dbe2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-content button:hover {
+    background-color: #00796b;
+}
+
+.fechar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* ===== Painel do Administrador ===== */
+#mainAdmin {
+    max-width: 900px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+#mainAdmin h2 {
+    text-align: center;
+    color: #004d40;
+    font-size: 1.8em;
+    margin-bottom: 8px;
+}
+
+#mainAdmin p {
+    text-align: center;
+    color: #555;
+    font-size: 1.1em;
+    margin-bottom: 25px; /* Espaçamento maior */
+}
+
+#adminTabela {
+    margin-top: 20px; /* separação da saudação */
+}
+
+/* Tabela */
+#tabelaAgendamentos {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fafafa;
+    margin-top: 10px;
+}
+
+#tabelaAgendamentos th, 
+#tabelaAgendamentos td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+#tabelaAgendamentos th {
+    background: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+}
+
+#tabelaAgendamentos tr:hover {
+    background: #f0faff;
+}
+
+.btn-acao {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Botão sair */
+.btn-sair {
+    display: block;
+    margin: 25px auto 0;
+    background: #ff5959;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btn-sair:hover {
+    background: #e04444;
+}
+
+/* Contagem */
+#listaContagem {
+    list-style: none;
+    padding: 0;
+    color: #333;
+}
+
+#listaContagem li {
+    background: #f9f9f9;
+    margin-bottom: 5px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #eee;
+}
+
+/* ===== Responsivo ===== */
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 1.2em;
+        margin: 5px 0;
+    }
+
+    .admin-btn {
+        padding: 6px 10px;
+        font-size: 0.8em;
+    }
+
+    #mainCliente section:first-of-type {
+        padding: 20px;
+    }
+
+    form {
+        padding: 0;
+    }
+
+    .modal-content {
+        width: 95%;
+    }
+
+    #mainAdmin {
+        padding: 20px;
+    }
+
+    #tabelaAgendamentos th, 
+    #tabelaAgendamentos td {
+        font-size: 0.85em;
+        padding: 6px;
+    }
+}
+/* ===== Caixa separada para Agendamentos no Admin ===== */
+.admin-tabela {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 25px;
+    margin: 40px auto;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    border-left: 6px solid #29dbe2;
+    max-width: 1000px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admin-tabela:hover {
+    transform: scale(1.01);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.admin-tabela h3 {
+    text-align: center;
+    color: #004d40;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.tabela-container {
+    overflow-x: auto;
+}
+
+.tabela-agendamentos {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fafafa;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tabela-agendamentos th {
+    background-color: #29dbe2;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-weight: bold;
+}
+
+.tabela-agendamentos td {
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.tabela-agendamentos tr:nth-child(even) {
+    background-color: #f5fafa;
+}
+
+.tabela-agendamentos tr:hover {
+    background-color: #e0f7fa;
+}
+
+.btn-acao {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 18px;
+    transition: color 0.2s;
+}
+
+.btn-acao:hover {
+    color: #29dbe2;
+}
